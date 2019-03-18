@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 version '1.0-SNAPSHOT'
@@ -16,4 +17,9 @@ dependencies {
     testCompile "org.testfx:testfx-junit:4.0.+"
     testCompile "org.hamcrest:hamcrest-junit:2.0.0.0"
     testCompile "org.loadui:testFx:3.1.2"
+    testRuntime 'org.testfx:openjfx-monocle:8u76-b04'
+}
+
+if (!project.hasProperty("noHeadless")) {
+    applicationDefaultJvmArgs = ["-Dheadless=true"]
 }
