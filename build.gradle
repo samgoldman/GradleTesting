@@ -12,4 +12,8 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile "org.testfx:testfx-core:4.0.+"
+    testCompile "org.testfx:testfx-junit:4.0.+"
+    testCompile "org.hamcrest:hamcrest-junit:2.0.0.0"
+    testCompile "org.loadui:testFx:3.1.2"
 }
