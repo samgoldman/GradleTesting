@@ -13,3 +13,6 @@ before_install:
 addons:
   artifacts:
     s3_region: "us-east-1"
+    paths:
+      - $(ls /home/travis/build/samgoldman/GradleTesting/testfx-test*.png | tr "\n" ":")
+      - /home/travis/build/samgoldman/GradleTesting/build/reports/*
