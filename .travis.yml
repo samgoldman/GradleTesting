@@ -10,9 +10,11 @@ before_script:
 before_install:
   - chmod +x gradlew
 
+after_script:
+  zip -r build_artifacts.zip /home/travis/build/samgoldman/GradleTesting/testfx-test*.png /home/travis/build/samgoldman/GradleTesting/build/reports/*
+
 addons:
   artifacts:
     s3_region: "us-east-1"
     paths:
-      - $(ls /home/travis/build/samgoldman/GradleTesting/testfx-test*.png | tr "\n" ":")
-      - /home/travis/build/samgoldman/GradleTesting/build/reports/**/*
+      - build_artifacts.zip
