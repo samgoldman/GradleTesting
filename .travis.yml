@@ -10,11 +10,12 @@ before_script:
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3 # give xvfb some time to start
 
-script:
-  - if branch = master OR branch = development;
-    then ./gradlew clean check;
-    else ./gradlew clean fastTests;
-    fi;
+jobs:
+  include:
+    - if: branch = master
+      script: ./gradlew clean check
+    - if: branch != master
+      script: ./gradlew clean fastTests
 
 after_script:
   zip -r build_artifacts.zip /home/travis/build/samgoldman/GradleTesting/testfx-test*.png /home/travis/build/samgoldman/GradleTesting/build/reports/*
