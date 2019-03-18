@@ -12,4 +12,4 @@ before_install:
 
 addons:
   artifacts:
-    s3_region: "us-east-2"
+    s3_region: "us-east-1"
