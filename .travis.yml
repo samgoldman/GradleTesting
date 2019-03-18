@@ -11,4 +11,5 @@ before_install:
   - chmod +x gradlew
 
 addons:
-  artifacts: true
+  artifacts:
+    s3_region: "us-east-2"
