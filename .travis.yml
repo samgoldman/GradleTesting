@@ -9,3 +9,6 @@ before_script:
 
 before_install:
   - chmod +x gradlew
+
+addons:
+  artifacts: true
