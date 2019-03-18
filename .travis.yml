@@ -12,9 +12,9 @@ before_script:
 
 script:
   - if branch = master OR branch = development;
-    then ./gradlew clean check
-    else ./gradlew clean fastTests
-    fi
+    then ./gradlew clean check;
+    else ./gradlew clean fastTests;
+    fi;
 
 after_script:
   zip -r build_artifacts.zip /home/travis/build/samgoldman/GradleTesting/testfx-test*.png /home/travis/build/samgoldman/GradleTesting/build/reports/*
