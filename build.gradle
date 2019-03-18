@@ -20,6 +20,9 @@ dependencies {
     testRuntime 'org.testfx:openjfx-monocle:8u76-b04'
 }
 
-if (!project.hasProperty("noHeadless")) {
-    applicationDefaultJvmArgs = ["-Dheadless=true"]
+application {
+    if (!project.hasProperty("noHeadless")) {
+        applicationDefaultJvmArgs += ["-Dheadless=true"]
+    }
+    mainClassName = 'com.sample.project.Main'
 }
