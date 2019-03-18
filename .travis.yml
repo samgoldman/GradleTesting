@@ -15,4 +15,4 @@ addons:
     s3_region: "us-east-1"
     paths:
       - $(ls /home/travis/build/samgoldman/GradleTesting/testfx-test*.png | tr "\n" ":")
-      - /home/travis/build/samgoldman/GradleTesting/build/reports/**
+      - /home/travis/build/samgoldman/GradleTesting/build/reports/**/*
