@@ -16,6 +16,6 @@ public class Controller {
     Button applyButton;
 
     public void applyButtonClicked () {
-        label.setText(inputField.getText().toLowerCase());
+        label.setText(inputField.getText());
     }
 }
