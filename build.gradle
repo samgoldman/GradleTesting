@@ -72,11 +72,6 @@ localTest {
     }
 }
 
-check.dependsOn fastTest
-check.dependsOn slowTest
-check.dependsOn uiFastTest
-check.dependsOn uiSlowTest
-
 dependencies {
     testCompile(
             [group: 'junit', name: 'junit', version: '4.12'],
