@@ -8,19 +8,20 @@ import javafx.stage.Stage;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit.ApplicationTest;
-import static org.testfx.api.FxAssert.verifyThat;
-
-import static org.testfx.util.DebugUtils.captureScreenshot;
-
 import org.loadui.testfx.GuiTest;
 
-import static org.hamcrest.Matchers.*;
+import testclassifications.UiTest;
+import testclassifications.FastTest;
+import testclassifications.SlowTest;
 
-import static org.junit.Assert.*;
+import static org.testfx.api.FxAssert.verifyThat;
+import static org.hamcrest.Matchers.is;
 import static org.testfx.util.DebugUtils.informedErrorMessage;
 
+@Category(UiTest.class)
 public class MainTest extends ApplicationTest {
 
     @Override
@@ -43,16 +44,6 @@ public class MainTest extends ApplicationTest {
     }
 
     @Test
-    public void testEnglishInput () {
-        Label label = (Label) GuiTest.find("#label");
-
-        clickOn("#inputField");
-        write("This is a test!");
-        clickOn("#applyButton");
-        verifyThat(label.getText(), is("This is a test!"), informedErrorMessage(this));
-    }
-
-    @Test
     public void testNumericalInput () {
         Label label = (Label) GuiTest.find("#label");
 
@@ -62,4 +53,20 @@ public class MainTest extends ApplicationTest {
         verifyThat(label.getText(), is("123456789"), informedErrorMessage(this));
     }
 
+    @Category(SlowTest.class)
+    @Test
+    public void testEnglishInput () {
+        Label label = (Label) GuiTest.find("#label");
+
+        clickOn("#inputField");
+        write("This is a test!");
+
+        long start = System.nanoTime();
+        while (System.nanoTime() - start < 30_000_000_000l) {
+            // Wait 30 seconds
+        }
+
+        clickOn("#applyButton");
+        verifyThat(label.getText(), is("This is a test!"), informedErrorMessage(this));
+    }
 }
