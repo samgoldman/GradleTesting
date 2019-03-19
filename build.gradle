@@ -28,11 +28,15 @@ task regressionTest(type: Test) {
 task localTest(type: Test) {
 }
 
+task integrationTest(type: Test) {
+}
+
 fastTest {
     useJUnit {
         includeCategories 'testclassifications.FastTest'
         excludeCategories 'testclassifications.UiTest'
         excludeCategories 'testclassifications.LocalTest'
+        excludeCategories 'testclassifications.IntegrationTest'
     }
 }
 
@@ -41,6 +45,7 @@ slowTest {
         includeCategories 'testclassifications.SlowTest'
         excludeCategories 'testclassifications.UiTest'
         excludeCategories 'testclassifications.LocalTest'
+        excludeCategories 'testclassifications.IntegrationTest'
     }
 }
 
@@ -49,6 +54,7 @@ uiFastTest {
         includeCategories 'testclassifications.UiTest'
         excludeCategories 'testclassifications.SlowTest'
         excludeCategories 'testclassifications.LocalTest'
+        excludeCategories 'testclassifications.IntegrationTest'
     }
 }
 
@@ -57,6 +63,7 @@ uiSlowTest {
         includeCategories 'testclassifications.UiTest'
         excludeCategories 'testclassifications.FastTest'
         excludeCategories 'testclassifications.LocalTest'
+        excludeCategories 'testclassifications.IntegrationTest'
     }
 }
 
@@ -72,11 +79,25 @@ localTest {
     }
 }
 
+integrationTest {
+    useJUnit {
+        includeCategories 'testclassifications.IntegrationTest'
+    }
+}
+
 test {
     useJUnit {
         excludeCategories 'testclassifications.LocalTest'
+        excludeCategories 'testclassifications.IntegrationTest'
     }
 }
+
+check.dependsOn integrationTest
+integrationTest.mustRunAfter fastTest
+integrationTest.mustRunAfter slowTest
+integrationTest.mustRunAfter uiFastTest
+integrationTest.mustRunAfter uiSlowTest
+integrationTest.mustRunAfter test
 
 dependencies {
     testCompile(

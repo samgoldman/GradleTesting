@@ -62,10 +62,10 @@ public class MainTest extends ApplicationTest {
         clickOn("#inputField");
         write("This is a test!");
 
-        long start = System.nanoTime();
-        while (System.nanoTime() - start < 30_000_000_000L) {
-            // Wait 30 seconds
-        }
+//        long start = System.nanoTime();
+//        while (System.nanoTime() - start < 30_000_000_000L) {
+//            // Wait 30 seconds
+//        }
 
         clickOn("#applyButton");
         verifyThat(label.getText(), is("This is a test!"), informedErrorMessage(this));

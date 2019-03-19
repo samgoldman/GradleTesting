@@ -14,9 +14,9 @@ jobs:
   include:
     - if: branch = master
       script: ./gradlew clean check
-    - if: branch = development
+    - elif: branch = development
       script: ./gradlew clean check
-    - if: branch != master AND branch != development
+    - elif: branch != master AND branch != development
       script: ./gradlew clean fastTest uiFastTest
 
 after_script:
