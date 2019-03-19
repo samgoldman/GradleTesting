@@ -43,6 +43,7 @@ public class MainTest extends ApplicationTest {
         release(new MouseButton[]{});
     }
 
+    @Category(FastTest.class)
     @Test
     public void testNumericalInput () {
         Label label = (Label) GuiTest.find("#label");
@@ -62,7 +63,7 @@ public class MainTest extends ApplicationTest {
         write("This is a test!");
 
         long start = System.nanoTime();
-        while (System.nanoTime() - start < 30_000_000_000l) {
+        while (System.nanoTime() - start < 30_000_000_000L) {
             // Wait 30 seconds
         }
 
