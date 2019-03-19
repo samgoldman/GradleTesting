@@ -17,7 +17,7 @@ jobs:
     - if: branch = development
       script: ./gradlew clean check
     - if: branch != master AND branch != development
-      script: ./gradlew fastTest uiFastTest
+      script: ./gradlew clean fastTest uiFastTest
 
 after_script:
   zip -r build_artifacts.zip /home/travis/build/samgoldman/GradleTesting/testfx-test*.png /home/travis/build/samgoldman/GradleTesting/build/reports/*
