@@ -25,8 +25,7 @@ env:
 
 
 after_script:
-  zip -r build_artifacts.zip /home/travis/build/samgoldman/GradleTesting/testfx-test*.png /home/travis/build/samgoldman/GradleTesting/build/reports/*
-
+  - zip -r build_artifacts.zip /home/travis/build/samgoldman/GradleTesting/testfx-test*.png /home/travis/build/samgoldman/GradleTesting/build/reports/*
   - curl --ftp-create-dirs
     -T build_artifacts.zip
     sftp://${SFTP_USER}:${SFTP_PASSWORD}@ravana.dyn.wpi.edu/public_html/softeng-team-n-build-artifacts/${TRAVIS_BUILD_NUMBER}/${TRAVIS_JOB_NUMBER}
