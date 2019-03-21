@@ -4,6 +4,11 @@ jdk:
 
 before_install:
   - chmod +x gradlew
+  - sudo apt-get install -y sshpass
+
+addons:
+  apt:
+    update: true
 
 before_script:
   - "export DISPLAY=:99.0"
@@ -25,7 +30,5 @@ env:
 
 
 after_script:
-  - zip -r build_artifacts.zip /home/travis/build/samgoldman/GradleTesting/testfx-test*.png /home/travis/build/samgoldman/GradleTesting/build/reports/*
-  - curl --ftp-create-dirs
-    -T build_artifacts.zip
-    sftp://${SFTP_USER}:${SFTP_PASSWORD}@ravana.dyn.wpi.edu/public_html/softeng-team-n-build-artifacts/${TRAVIS_BUILD_NUMBER}/${TRAVIS_JOB_NUMBER}
+  - zip -r build_artifacts_${TRAVIS_JOB_NUMBER}.zip /home/travis/build/samgoldman/GradleTesting/testfx-test*.png /home/travis/build/samgoldman/GradleTesting/build/reports/*
+  - sshpass -p ${SFTP_PASSWORD} scp build_artifacts_${TRAVIS_JOB_NUMBER}.zip ${SFTP_USER}@ravana.dyn.wpi.edu:public_html/
