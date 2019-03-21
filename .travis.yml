@@ -29,4 +29,4 @@ after_script:
 
   - curl --ftp-create-dirs
     -T build_artifacts.zip
-    sftp://${SFTP_USER}:${SFTP_PASSWORD}@ravana.dyn.wpi.edu/public_html/softeng-team-n-build-artifacts/${TRAVIS_BUILD_NUMBER}/${TRAVIS_JOB_NUMBER}/
+    sftp://${SFTP_USER}:${SFTP_PASSWORD}@ravana.dyn.wpi.edu/public_html/softeng-team-n-build-artifacts/${TRAVIS_BUILD_NUMBER}/${TRAVIS_JOB_NUMBER}
