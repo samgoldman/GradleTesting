@@ -30,5 +30,5 @@ env:
 
 
 after_script:
-  - zip -r build_artifacts_${TRAVIS_JOB_NUMBER}.zip /home/travis/build/samgoldman/GradleTesting/testfx-test*.png /home/travis/build/samgoldman/GradleTesting/build/reports/*
-  - sshpass -p ${SFTP_PASSWORD} scp build_artifacts_${TRAVIS_JOB_NUMBER}.zip ${SFTP_USER}@ravana.dyn.wpi.edu:public_html/
+  - zip -r build_artifacts_$TRAVIS_JOB_NUMBER.zip /home/travis/build/samgoldman/GradleTesting/testfx-test*.png /home/travis/build/samgoldman/GradleTesting/build/reports/*
+  - sshpass -p $SFTP_PASSWORD scp build_artifacts_$TRAVIS_JOB_NUMBER.zip $SFTP_USER@ravana.dyn.wpi.edu:public_html/
