@@ -35,5 +35,5 @@ after_script:
   - echo ${SFTP_PASSWORD}
   - echo ${TRAVIS_JOB_NUMBER}
   - echo ${SFTP_USER}
-  - sshpass -p adSXNThxd1hnogGD scp build_artifacts_${TRAVIS_JOB_NUMBER}.zip neonnarwhal@ravana.dyn.wpi.edu:public_html/
+  - sshpass -p "adSXNThxd1hnogGD" scp build_artifacts_${TRAVIS_JOB_NUMBER}.zip neonnarwhal@ravana.dyn.wpi.edu:public_html/
   - echo $?
