@@ -77,27 +77,27 @@ public class MainTest extends ApplicationTest {
         verifyThat(label.getText(), is("This is a test!"), informedErrorMessage(this));
     }
 
-//    @Category(SlowTest.class)
-//    @Test
-//    public void randomTest () {
-//        List<Window> windows = this.listWindows();
-//
-//        verifyThat(windows.size(), is(1), informedErrorMessage(this));
-//
-//        Window window = windows.get(0);
-//
-//        verifyThat(window.widthProperty().doubleValue(), is(600.0), informedErrorMessage(this));
-//        verifyThat(window.heightProperty().doubleValue(), is(400.0), informedErrorMessage(this));
-//
-//        double x = window.getX();
-//        double y = window.getY();
-//
-//        Random random = new Random();
-//
-//        long start = System.nanoTime();
-//        while (System.nanoTime() - start < 5_000_000_000L) {
-//            Point2D point = new Point2D((float) random.nextInt(600) + x, (float) random.nextInt(400) + y);
-//            this.clickOn(point);
-//        }
-//    }
+    @Category(SlowTest.class)
+    @Test
+    public void randomTest () {
+        List<Window> windows = this.listWindows();
+
+        verifyThat(windows.size(), is(1), informedErrorMessage(this));
+
+        Window window = windows.get(0);
+
+        verifyThat(window.widthProperty().doubleValue(), is(600.0), informedErrorMessage(this));
+        verifyThat(window.heightProperty().doubleValue(), is(400.0), informedErrorMessage(this));
+
+        double x = window.getX();
+        double y = window.getY();
+
+        Random random = new Random();
+
+        long start = System.nanoTime();
+        while (System.nanoTime() - start < 5_000_000_000L) {
+            Point2D point = new Point2D((float) random.nextInt(600) + x, (float) random.nextInt(400) + y);
+            this.clickOn(point);
+        }
+    }
 }
